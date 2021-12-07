@@ -9,12 +9,13 @@ const getKey = (min: number, max: number) => {
 
 setTimeout(() => {
   cron.schedule("* * * * *", () => {
+    const pressKey = key[getKey(1, 4)];
     console.log("lift all");
     robot.keyToggle("w", "up");
     robot.keyToggle("a", "up");
     robot.keyToggle("s", "up");
     robot.keyToggle("d", "up");
-    console.log("press");
-    robot.keyToggle(key[getKey(1, 4)], "down");
+    console.log(`press ${pressKey}`);
+    robot.keyToggle(pressKey, "down");
   });
 }, 2000);
